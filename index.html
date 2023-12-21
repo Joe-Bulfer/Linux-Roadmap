@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .node {
+        cursor: pointer;
+    }
+    .node:hover rect {
+        color: yellow;
+    }
+
+.side-view {
+    position: fixed;
+    right: -250px; /* Start off-screen */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    border-left: 1px solid black;
+    transition: right 0.3s;
+}
+
+.side-view.open {
+    right: 0;
+}
+
+</style>
+<body>
+  <pre class="mermaid">
+    graph TD
+    step1["1. POST (Power-On Self Test)"]
+    step2["2. BIOS/UEFI Initiated"]
+    step3["3. Firmware Selects Boot Device"]
+    step4["4. Bootloader (GRUB2) Loaded"]
+    step5["5. Initrd (Initial RAM Disk)"]
+    step6["6. Init/Systemd Process"]
+
+    step1 --> step2
+    step2 --> step3
+    step3 --> step4
+    step4 --> step5
+    step5 --> step6
+  </pre>
+
+  <div id="sideView" class="side-view">ASDFASDFASDFSADFASDFASDF</div>
+</body>
+
+
+<script>
+mermaid.initialize({ securityLevel: 'loose' });
+
+// // Wait for Mermaid to render the diagram
+mermaid.init(undefined, '.mermaid');
+
+// // Handle clicks on dynamically generated SVG elements
+document.querySelector('.mermaid').addEventListener('click', function(event) {
+        console.log("click"); 
+    // Check if the clicked element is part of the diagram
+    if (event.target.closest('.node')) {
+        console.log("in if block"); 
+        const sideView = document.getElementById('sideView');
+        sideView.classList.add('open');
+        // Update to show relevant content on the left side-view 
+        sideView.innerHTML = `<h2>${event.target.textContent}</h2>`;
+    }
+});
+
+</script>
+
+
+<script src="
+https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js
+"></script>
+</html>

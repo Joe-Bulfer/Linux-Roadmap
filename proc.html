@@ -1,0 +1,4 @@
+<h5 id="proc">/proc</h5>
+<p>The process directory contains a subdirectory for every ongoing process, similar to what is displayed in Windows Task Manager or Linux <code>top</code> command. The process with PID (process ID) of 1, <code>/proc/1</code>, is a special process know as the init process which is responsible for starting essential system services, and which all other processes are children of. This is often managed by <code>systemd</code>, replacing <code>init</code>.</p>
+<p>proc is one of the three virtual/psuedo filesystems as it creates files dynamically, on the spot to represent the current processes.</p>
+<p>Besides ongoing processes, the <code>/proc</code> directory also contains some kernel and hardware information. At one point in history, this got messy and Linux developers decided to create another directory <code>/sys</code> to contain this.</p>

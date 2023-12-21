@@ -1,0 +1,8 @@
+<h5 id="boot">/boot</h5>
+<p>Upon starting a Linux system, after the BIOS or EUFI firmware has selected a boot device, such as a hard disk or SSD, it searches for a bootloader within that device inside the /boot directory. Grub (Grand Unified Bootloader) then uncompresses the <code>vmlinuz</code> executable file into memory. <code>vmlinuz</code> is an image of the entire kernel. compressed into one file.</p>
+<p>The next step after the kernel has been loaded into memory, is Grub handing over control to the kernel to complete the boot process. A temporary root file system is created with <code>initrd</code> (initial ramdisk) that contains just enough loadable modules to give the kernel access to the rest of the hardware.</p>
+<p>In many systems, boot is a seperate partition, you can check this by listing block devices with <code>lsblk</code>. You can see on my NVME card, it is indeed a seperate partition.</p>
+<pre><code>lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme0n1     259:0    0   1.8T  0 disk 
+├─nvme0n1p1 259:1    0   260M  0 part /boot/efi</code></pre>
