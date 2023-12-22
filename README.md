@@ -7,6 +7,8 @@ Diagrams will be rendered using [Mermaid.js](https://mermaid.js.org/), where eac
 
 Here is what the diagram may look like covering 1.1: Linux Fundumentals.
 
+Note these may not render on mobile.
+
 ```mermaid
 ---
 title: 
